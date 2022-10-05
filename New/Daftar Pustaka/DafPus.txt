@@ -1,0 +1,72 @@
+Sudirman, Acai, Muttaqin, M., Purba, R. A., Wirapraja, A., Abdillah, L. A., Fajrillah, F., ... & Simarmata, J. (2020). Sistem Informasi Manajemen. Yayasan Kita Menulis. 9786236512395
+
+Negara, Edi Surya, Romindo, R., Tanjung, R., Heriyani, N., Simarmata, J., Jamaludin, J., ... & Purba, B. (2021). Sistem Informasi Manajemen Bisnis. Yayasan Kita Menulis.
+
+Jayanti, N. K. D. A., & Sumiari, N. K. (2018). Teori basis data. Penerbit Andi. 9789792972016
+
+Ginantra, N. L. W. S. R., Wardani, N. W., Aristamy, I. G. A. A. M., Suryawan, I. W. D., Ardiana, D. P. Y., Sudipa, I. G. I., ... & Parwita, W. G. S. (2020). Basis Data: Teori dan Perancangan. Yayasan Kita Menulis.
+
+Ningsih, S. R., Suryani, A. I., Sinlae, A. A. J., Harmayani, H., Parewe, A. M. A., Halid, A., ... & Muttaqin, M. (2022). Perancangan Basis Data. Yayasan Kita Menulis. 9786233423984
+
+Romindo, R., Niar, H., Sipayung, R., Julyanthry, J., Yendrianof, D., Pelu, M. F. A., ... & Purba, B. (2020). Sistem Informasi Bisnis. Yayasan Kita Menulis. 9786236761687
+
+Yusup, P. M. (2022). Ilmu Informasi, Komunikasi, dan Kepustakaan: Edisi Kedua. Bumi Aksara. 9786022178613
+
+Suryadharma, S. I. M., Triyani Budyastuti, S. E., & Ak, M. (2019). Sistem Informasi Manajemen. Uwais Inspirasi Indonesia. 9786232271838
+
+Yendrianof, Devi, Romindo, Afni Nia Sari, Hartanto T., Ega E. P., Melda A. M., Rifa T., Defiariany, Nency E. P., Teguh P., Jamaludin., Janner S., Rismayani, Sitti A. (2022). Analisis dan Perancangan Sistem Informasi. Yayasan Kita Menulis
+9786233424295
+
+Mulyani, S. (2017). Metode Analisis dan perancangan sistem. Abdi Sistematika.
+9789791990622
+
+Romindo, R., Muttaqin, M., Rasinus, R., Israwan, L. F., Yuswardi, Y., Karim, A., Sari, A. N., Putri, E. E., & Samosir, K. (2021). Sistem Informasi. Yayasan Kita Menulis.
+
+Nofri Yudi Arifin, S., Rohmat Indra Borman, S., Imam Ahmad, S., Sari Setyaning Tyas, S., Heni Sulistiani, M., Alim Hardiansyah, S., Ghea Paulina Suri, S., & M.Kom. (2021). Analisa Perancangan Sistem Informasi. Cendikia Mulia Mandiri.
+9786239828783
+
+Santi, I. H. (2020). Analisa perancangan sistem. Penerbit NEM. 9786237566830
+
+Evi Yulia Susanti, M. (2021). Analisa Dan Perancangan Sistem Informasi: BIntang Pustaka. Bintang Pustaka Madani.
+
+Ni Luh Wiwik Sri Rahayu Ginantra, Wardani, N. W., I Gusti Ayu Agung Mas Aristamy, Suryawan, I. W., Ardiana, D. P., Sudipa, I. G., Dirgayusari, A. M., Mahendra, G. S., Ariasih, N. K., & Parwita, W. G. (2020). Basis data: Teori Dan Perancangan. Yayasan Kita Menulis.
+
+Fatkhurrochman, Muin, M. A., & Priyoatmoko, W. (2021). Pemrograman basis data bagi pemula. Penerbit NEM.
+
+Rahimi Fitri, S. (2020). Pemrograman basis data Menggunakan MySQL. Deepublish.
+
+Dimas Aryo Anggoro, S., Wiwit Supriyanti, S., & Devi Afriyantari Puspa Putri, S. (2021). Konsep Dasar Sistem basis data dengan MySQL. Muhammadiyah University Press.
+
+Mesran, Nasution, S. D., & Waruwu, F. T. (2019). Merancang Aplikasi Penjualan dengan Visual Basic. Green Press.
+
+Habibi, R., Putra, F. B., & Putri, I. F. (2020). Aplikasi kehadiran dosen menggunakan PHP OOP. Kreatif.
+
+Sukamto, R. A., & Shalahuddin, M. (2018). Rekayasa Perangkat Lunak (Terstruktur dan Beorientasi Objek). Informatika Bandung.
+
+Indra Rianto, S. (2021). Rekayasa perangkat lunak. Penerbit Lakeisha.
+
+Weli. (2019). Aplikasi kasus Siklus Transaksi Bisnis: Suatu Pendekatan Pengembangan Sistem Informasi Akuntansi. Penerbit Unika Atma Jaya Jakarta.
+
+Ummy Gusti Salamah, S. (2021). Tutorial visual studio code. Media Sains Indonesia.
+
+Roza, R., Fauzan, M. N., & Rahayu, W. I. (2020). Tutorial Sistem Informasi Prediksi Jumlah Pelanggan Menggunakan Metode Regresi Linier Berganda Berbasis web Menggunakan framework Codeigniter. Kreatif.
+
+Falentino Sembiring, M., Anggun Fergina, M., Sudin Saepudin, M., Adhitia Erfina, S., & Dudih Gustian, S. (2020). Fundamental basis data. Media Sains Indonesia.
+
+Aprilian, L. V., & Saputra, M. H. (2020). Belajar cepat metode SAW. Kreatif.9786232961906
+
+Widia, D. M., & Asriningtias, S. R. (2021). Cara Cepat Dan Praktis Membangun web Dinamis dengan PHP Dan MySQL. Universitas Brawijaya Press.
+
+Limbong, T., & Sriadhi, S. (2021). Pemrograman Web Dasar. Yayasan Kita Menulis.
+
+Faisal, M. R., & Abadi, F. (2020). Pemrograman web Dasar I: Belajar HTML 5. M Reza Faisal.
+
+Arifin, D. (2019). Pengenarlan WEB GIS Menggunakan Geoserver. CV Cendekia Press.
+
+Kaban, R., & Sembiring, D. J. (2021). HTML (Hypertext Markup Language) Pengantar Pemrograman Berbasis web. Insan Cendekia Mandiri.
+
+Lewenusa, I. (2020). Dasar Penggunaan CSS pada Pengembangan Web. Irwan Lewenusa.
+
+Sopyana, D. M. (2020). Tutorial Membuat Tampilan Menggunakan Bootstrap 4. Dzikir MS.
+
+Fadilla, R., & Andarsyah, R. (2020). Tutorial E-auction terintegrasi Google application programing interface (APL). Kreatif.
