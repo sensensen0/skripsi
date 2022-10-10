@@ -1,2 +1,2 @@
 # skripsi
-skripsi saya
+MENYELESAIKAN SKRIPSI UTAMA 
