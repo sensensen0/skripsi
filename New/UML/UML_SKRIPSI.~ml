@@ -13112,7 +13112,7 @@
 <XPD:ATTR name="Left" type="integer">492</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">36</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">99</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">264</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">251</XPD:ATTR>
 <XPD:ATTR name="WordWrap" type="boolean">True</XPD:ATTR>
 <XPD:REF name="Model">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="h1IILAtCJk6vAIxzGFqOhAAA">
@@ -14428,65 +14428,61 @@
 <XPD:REF name="Associations[6]">qOksgcX070C3QIAbgEeWswAA</XPD:REF>
 <XPD:REF name="Associations[7]">DUb14gJI4E6svoa/RFjTbAAA</XPD:REF>
 <XPD:REF name="Associations[8]">7yxs/uzOPE6UmpaiErqpPgAA</XPD:REF>
-<XPD:ATTR name="#Attributes" type="integer">15</XPD:ATTR>
-<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="/PGpYtS5YkeJv/lRdW9s9AAA">
-<XPD:ATTR name="Name" type="string">namaLengkap</XPD:ATTR>
-<XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="k6zLRU88YkeXzLsh/sibYQAA">
+<XPD:ATTR name="#Attributes" type="integer">14</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="k6zLRU88YkeXzLsh/sibYQAA">
 <XPD:ATTR name="Name" type="string">username</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="ymbKBGgG70+Kv+uCErVBQAAA">
+<XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="ymbKBGgG70+Kv+uCErVBQAAA">
 <XPD:ATTR name="Name" type="string">password</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="QUeJzzeVd0q5XKQ9PtImsAAA">
-<XPD:ATTR name="Name" type="string">confirmPassword</XPD:ATTR>
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="/PGpYtS5YkeJv/lRdW9s9AAA">
+<XPD:ATTR name="Name" type="string">namaLengkap</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="rSXmWSo4DkmWMTQ9e8YS/QAA">
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="rSXmWSo4DkmWMTQ9e8YS/QAA">
 <XPD:ATTR name="Name" type="string">jenisKelamin</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="v+gtNeJ6oUKwSvrvPuLXdwAA">
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="v+gtNeJ6oUKwSvrvPuLXdwAA">
 <XPD:ATTR name="Name" type="string">tempatLahir</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="zxm4W0snnU+472hEqtSQwQAA">
+<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="zxm4W0snnU+472hEqtSQwQAA">
 <XPD:ATTR name="Name" type="string">tanggalLahir</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="vt0HG4AHB0uw2jloNo21vAAA">
+<XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="vt0HG4AHB0uw2jloNo21vAAA">
 <XPD:ATTR name="Name" type="string">noHp</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[8]" type="UMLAttribute" guid="XW985UHCGkyTk4sb3r4c+gAA">
+<XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="XW985UHCGkyTk4sb3r4c+gAA">
 <XPD:ATTR name="Name" type="string">alamatLengkap</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[9]" type="UMLAttribute" guid="+Cd/m8ZvQEuuEhcIglpGZQAA">
+<XPD:OBJ name="Attributes[8]" type="UMLAttribute" guid="+Cd/m8ZvQEuuEhcIglpGZQAA">
 <XPD:ATTR name="Name" type="string">provinsi</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[10]" type="UMLAttribute" guid="b7dSyyXQkk6f542po9LsJwAA">
+<XPD:OBJ name="Attributes[9]" type="UMLAttribute" guid="b7dSyyXQkk6f542po9LsJwAA">
 <XPD:ATTR name="Name" type="string">kota</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[11]" type="UMLAttribute" guid="7vLg0NffvUWMo9t4+DqD+QAA">
+<XPD:OBJ name="Attributes[10]" type="UMLAttribute" guid="7vLg0NffvUWMo9t4+DqD+QAA">
 <XPD:ATTR name="Name" type="string">kecamatan</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[12]" type="UMLAttribute" guid="xEqPljQClUS41qxHqw/H6AAA">
+<XPD:OBJ name="Attributes[11]" type="UMLAttribute" guid="xEqPljQClUS41qxHqw/H6AAA">
 <XPD:ATTR name="Name" type="string">kelurahan</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[13]" type="UMLAttribute" guid="w7rcnHIoVUa0jPCwIA9BugAA">
+<XPD:OBJ name="Attributes[12]" type="UMLAttribute" guid="w7rcnHIoVUa0jPCwIA9BugAA">
 <XPD:ATTR name="Name" type="string">kodePos</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[14]" type="UMLAttribute" guid="0ZLlmyY+KU+3zmtGemTmYwAA">
+<XPD:OBJ name="Attributes[13]" type="UMLAttribute" guid="0ZLlmyY+KU+3zmtGemTmYwAA">
 <XPD:ATTR name="Name" type="string">pekerjaan</XPD:ATTR>
 <XPD:REF name="Owner">sMpsSvD/R0aVkH54nTdLzwAA</XPD:REF>
 </XPD:OBJ>
