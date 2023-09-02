@@ -208,9 +208,10 @@
                 alert("Data telah berubah");
             }else if (bagi[1] == "hapus") {
                 alert("Data telah terhapus");
+            }else if(bagi[1] == "usernameada") {
+              alert("AKUN SUDAH TERDAFTAR");
+              location.href="halamanUser.php"
             }
-
-            // document.getElementById("tableku").innerHTML = bagi[2]
             }
         };
             xhttp.open("POST", url, true);

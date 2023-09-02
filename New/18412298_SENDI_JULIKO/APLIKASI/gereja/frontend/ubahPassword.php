@@ -80,19 +80,20 @@
                       </div>
                       <div class="mb-3">
                         <label for="passwordLama" class="form-label">Password Lama</label>
-                        <input type="password" class="form-control" id="passwordLama" name="passwordLama" placeholder="Masukkan password lama" required>
+                        <input type="password" class="form-control" id="passwordLama" name="passwordLama" placeholder="Masukkan password lama" oninput="validateForm()" required>
                       </div>
-                      <div>
-
-                      </div>
-                      <div class="mb-3">
-                        <label for="passwordBaru" class="form-label">Password Baru</label>
-                        <input type="password" class="form-control" id="passwordBaru" name="passwordBaru" placeholder="Masukkan password baru" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="confirmPasswordBaru" class="form-label">Confirm Password Baru</label>
-                        <input type="password" class="form-control" id="confirmPasswordBaru" name="confrimPasswordBaru" placeholder="Masukkan ulang password" required>
-                      </div>
+                      <form onsubmit="return validateForm();">
+                        <div class="mb-3">
+                          <label for="passwordBaru" class="form-label">Password Baru</label>
+                          <input type="password" class="form-control" id="passwordBaru" name="passwordBaru" placeholder="Masukkan password baru" required>
+                          <span id="passwordLengthError" class="error col-md-5"></span><br> <!-- Menampilkan pesan error -->
+                        </div>
+                        <div class="mb-3">
+                          <label for="confirmPasswordBaru" class="form-label">Confirm Password Baru</label>
+                          <input type="password" class="form-control" id="confirmPasswordBaru" name="confrimPasswordBaru" placeholder="Masukkan ulang password" oninput="validateForm()" required>
+                          <span id="passwordError" class="error col-md-4"></span><br> <!-- Menampilkan pesan error -->
+                        </div>
+                      </form>
                       <div class="mt-3 mb-3 text-center">
                         <input id="cmd" type="button" class="btn btn-primary" value="Ubah" onclick="ubah()">
                         <input type="button" class="btn btn-danger" value="Batal" onclick="konfirmasiBatal()">
@@ -136,35 +137,33 @@
       //   return true;
       // }
 
-        function validasiPassword() {
-            
+      function validateForm() {
+        var password = document.getElementById("passwordBaru").value;
+        var confirmPassword = document.getElementById("confirmPasswordBaru").value;
+        var passwordError = document.getElementById("passwordError");
+        var passwordLengthError = document.getElementById("passwordLengthError");
+        var cmd = document.getElementById("cmd");
+        // Reset pesan error sebelumnya
+        passwordError.textContent = "";
+        passwordLengthError.textContent = "";
+
+        // Cek apakah password dan confirm password sama
+        if (password !== confirmPassword) {
+          passwordError.textContent = "Password dan Confirm Password tidak sama!";
+          cmd.disabled = true;
+          return false;
         }
 
-        function validasiKodePos() {
-            var input = document.getElementById("kodePos").value;
-            var number = parseInt(input);
-
-            if (isNaN(number) || input.length > 5) {
-                document.getElementById("errorMsg").innerText = "Harap masukkan angka hingga 5 digit!";
-                return false;
-            } else {
-                document.getElementById("errorMsg").innerText = "";
-                return true;
-            }
+        // Cek panjang password minimal 6 karakter
+        if (password.length < 6) {
+          passwordLengthError.textContent = "Password harus memiliki minimal 6 karakter!";
+          cmd.disabled = true;
+          return false;
         }
-        function validasiNoHp() {
-            var input = document.getElementById("noHp").value;
-            var number = parseInt(input);
-
-            if (isNaN(number) || input.length > 14) {
-                document.getElementById("errorMsg").innerText = "Harap masukkan angka hingga 12 atau 14 digit!";
-                return false;
-            } else {
-                document.getElementById("errorMsg").innerText = "";
-                return true;
-            }
-        }
-        
+        cmd.disabled=false;
+        return true;
+      }
+       
         //function konfirmasi batal
         function konfirmasiBatal(){
             if(confirm("Apakah anda yakin ingin membatalkan pendaftaran?")) {
@@ -187,11 +186,8 @@
             if(bagi[1] == "daftar"){
                 alert("Anda telah terdaftar!");
                 window.location.href="form-login.php";
-            }else if (bagi[1] == "usernameada") {
-                alert("Username Telah Ada! Mohon menggunakan username lain.");
-                resetForm();
-            }else if (bagi[1] == "penggunaada") {
-                alert("Pengguna Telah Ada! Mohon mendaftar pengguna lain.");
+            }else if (bagi[1] == "pwtidaksesuai") {
+                alert("Error: Password Lama Tidak Sesuai!");
                 resetForm();
             }else if(bagi[1] == "ubah") {
                 alert("Password telah diubah!");

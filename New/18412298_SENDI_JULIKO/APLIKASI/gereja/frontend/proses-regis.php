@@ -22,12 +22,16 @@
     if ($cmd == "Daftar"){
         $query1 = "SELECT * FROM tbuser WHERE username = '$username'";
         $query2 = "SELECT * FROM tbuser where namaLengkap = '$namaLengkap'";
+        $query3 = "SELECT * FROM tbuser where email = '$email'";
         $result1 = mysqli_query($con, $query1);
         $result2 = mysqli_query($con, $query2);
+        $result3 = mysqli_query($con, $query3);
         if (mysqli_num_rows($result1) > 1) {
             echo '###usernameada';
         }else if (mysqli_num_rows($result2) > 1) {
             echo '###penggunaada';
+        }else if (mysqli_num_rows($result3) > 1) {
+            echo '###emailada';
         }
         else {
             mysqli_query($con, "insert into tbuser (username, password, email, namaLengkap, jenisKelamin, tempatLahir, tanggalLahir, noHp, alamatLengkap, 

@@ -74,11 +74,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="lampirSuratBaptis" class="form-label">Lampir Surat Baptis</label>
-                        <input type="file" accept=".jpg, .jpeg, .pdf" id="lampirSuratBaptis" class="form-control form-input">
+                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" id="lampirSuratBaptis" class="form-control form-input">
                     </div>
                     <div class="mb-3">
                         <label for="lampirSertifikatPranikah" class="form-label">Lampir Sertifikat Pranikah</label>
-                        <input type="file" accept=".jpg, .jpeg, .pdf" id="lampirSertifikatPranikah" class="form-control form-input">
+                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" id="lampirSertifikatPranikah" class="form-control form-input">
                     </div>
                     <div class="mb-3">
                         <label for="tanggalPemberkatan" class="form-label">Tanggal Pemberkatan</label>
@@ -89,9 +89,21 @@
                         <div class="">
                             <select name="waktuPemberkatan" id="waktuPemberkatan" class="form-select">
                               <option disabled selected>-- Pilih Waktu Pemberkatan --</option>
-                              <option value="10.00 WIB">10.30 WIB</option>
-                              <option value="12.00 WIB">12.00 WIB</option>
-                              <option value="14.00 WIB">14.00 WIB</option>
+                              <?php
+                                include "koneksi.php";
+                                $sql = mysqli_query($con, "select * from tbsesikelas inner join tbkelas on tbsesikelas.idKelas = tbkelas.idKelas where tbkelas.namaKelas = 'Pemberkatan Pernikahan'");
+                                while($data = mysqli_fetch_array($sql)){
+                                $idSesiKelas = $data['idSesiKelas'];
+                                $namaKelas = $data['namaKelas'];
+                                $namaSesi = $data['namaSesi'];
+                                $hariSesi = $data['hariSesi'];
+                                $waktuMulai = $data['waktuMulai'];
+                                $waktuAkhir = $data['waktuAkhir'];
+                                ?>
+                                    <option value="<?php echo $idSesiKelas; ?>"><?php echo $namaSesi, " (", $hariSesi,": ", $waktuMulai,"-",$waktuAkhir, ")"?></option>
+                                <?php
+                              } 
+                          ?>
                             </select>
                         </div>
                     </div>
@@ -113,6 +125,8 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
         var idDaftarPranikahSkrg = "";
 
@@ -152,8 +166,8 @@
             let username = document.getElementById("username").value;
             let namaLengkap = document.getElementById("namaLengkap").value;
             let namaPasangan = document.getElementById("namaPasangan").value;
-            let lampirSuratBaptis = document.getElementById("lampirSuratBaptis").value;
-            let lampirSertifikatPranikah = document.getElementById("lampirSertifikatPranikah").value;
+            let lampirSuratBaptis = document.getElementById("lampirSuratBaptis").files[0];
+            let lampirSertifikatPranikah = document.getElementById("lampirSertifikatPranikah").files[0];
             let tanggalPemberkatan = document.getElementById("tanggalPemberkatan").value;
             let waktuPemberkatan = document.getElementById("waktuPemberkatan").value;
             let namaOrtuPria = document.getElementById("namaOrtuPria").value;
@@ -174,7 +188,37 @@
             data.append("namaOrtuWanita",namaOrtuWanita);
             data.append("cmd", cmd);
 
-            ajaxku("proses-pemberkatan.php", data);
+            $.ajax({
+                url: 'proses-pemberkatan.php',
+                type: 'POST',
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                var dataku = response;
+
+                var bagi = dataku.split("###");
+
+                if(bagi[1] == "daftar"){
+                    alert("Anda telah terdaftar!");
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                    window.location.href="halamanUser.php"
+                }else if (bagi[1] == "ubah") {
+                    alert("Data telah berubah");
+                }else if (bagi[1] == "hapus") {
+                    alert("Data telah terhapus");
+                }else if(bagi[1] == "usernameada") {
+                    alert("AKUN SUDAH TERDAFTAR");
+                    location.href="halamanUser.php"
+                }
+                },
+                error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+                // Handle error
+                }
+            });
         }       
       document.getElementById('lampirSuratBaptis').addEventListener('change', function(event) {
         var file = event.target.files[0];

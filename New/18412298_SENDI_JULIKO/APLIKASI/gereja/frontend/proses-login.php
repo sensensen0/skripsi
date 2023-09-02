@@ -17,8 +17,6 @@
 
         $_SESSION['username'] = $username;
         $_SESSION['namaLengkap'] = $namaLengkap;
-    } else {
-        echo "gagal";
     }
     
 ?>

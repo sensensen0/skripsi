@@ -2,6 +2,7 @@
 <html dir="ltr" lang="en">
   <?php 
     session_start();
+    include "koneksi.php"
   ?>
   <head>
 
@@ -125,75 +126,64 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form class="form-horizontal">
+                        <div class="card-body">
+                            <h4 class="card-title">Tabel Data</h4>
+                            <table class="table table-responsive table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <td>ID Daftar</td>
+                                        <td>Tanggal Daftar</td>
+                                        <td>Username</td>
+                                        <td>Nama Lengkap</td>
+                                        <td>Konfirmasi</td>
+                                        <td>Nama Sesi</td>
+                                        <td>Status Verifikasi</td>
+                                        <td>Aksi</td>
+                                    </tr>
+                                </thead>
+                            <?php 
+                                $sql = mysqli_query($con, "select * from tbdaftarkelasbaptis inner join tbuser on tbdaftarkelasbaptis.username = tbuser.username inner join tbsesikelas on tbdaftarkelasbaptis.idsesikelas = tbsesikelas.idsesikelas");
+                                while($data = mysqli_fetch_array($sql)){
+                                    $idDaftarKelasBaptis = $data[0];
+                                    $tanggalDaftar = $data[1];
+                                    $username = $data[2];
+                                    $namaLengkap = $data['namaLengkap'];
+                                    $konfirmasi = $data[3];
+                                    $idSesiKelas = $data[4];
+                                    $namaSesi = $data['namaSesi'];
+                                    $waktuMulai = $data['waktuMulai'];
+                                    $waktuAkhir = $data['waktuAkhir'];
+                                    $statusVerifikasi = $data['5'];
+                                    ?>
+                                        <tbody>
+                                            <td><?php echo $idDaftarKelasBaptis; ?></td>
+                                            <td><?php echo $tanggalDaftar; ?></td>
+                                            <td><?php echo $username; ?></td>
+                                            <td><?php echo $namaLengkap; ?></td>
+                                            <td><?php if($konfirmasi="0"){echo $konfirmasi = "Tidak Bersedia";} else{echo $konfirmasi="Bersedia";} ?></td>
+                                            <td><?php echo $namaSesi," (","$waktuMulai", "-","$waktuAkhir",")";?></td>
+                                            <td id="statusVerifikasi"><?php if($statusVerifikasi=="0"){echo $statusVerifikasi="Belum terverifikasi";}else if($statusVerifikasi=="1"){echo $statusVerifikasi="Telah terverifikasi";}?></td>
+                                            <td class="text-center">
+                                                <input id = "accept" type="button" class="btn btn-primary btn-success center col-md-auto mb-1" value="Terima" onclick="terima()">
+                                                <input id = "decline" type="button" class="btn btn-danger col-md-auto mb-1" value="Tolak" onclick="tolak(<?php echo "'$idDaftarKelasBaptis'"; ?>)">
+                                            </td>
+                                        </tbody>
+                                    <?php
+                                }
+                            ?>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>  
           <!-- ============================================================== -->
           <!-- Start Page Content -->
           <!-- ============================================================== -->
-          <!-- <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <form class="form-horizontal">
-                  <div class="card-body">
-                    <h4 class="card-title">Isi Data Pendaftaran Kelas</h4>
-                    <div class="form-group row">
-                      <label
-                        for="idKelas"
-                        class="col-md-3 text-end control-label col-form-label"
-                        >Nama Kelas</label
-                      >
-                      <div class="col-md-9">
-                        <select name="idKelas" id="idKelas" class="form-select" onclick="tampil()">
-                          <option disabled selected>-- Pilih Kelas --</option>                        
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="username"
-                        class="col-md-3 text-end control-label col-form-label"
-                        >Nama Jemaat</label
-                      >
-                      <div class="col-md-9">
-                        <select name="username" id="username" class="form-select">
-                        <option value="" selected disabled>-- Pilih Daftar Jemaat --</option>                      
-                        </select>
-                      </div>
-                    </div>
-                    <div id="pasangan" class="form-group row" id="pasangan">
-                      <label
-                        for="namapasangan"
-                        class="col-sm-3 text-end control-label col-form-label"
-                        >Nama Pasangan</label
-                      >
-                      <div class="col-md-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="namapasangan"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label
-                        for="idsesikelas"
-                        class="col-md-3 text-end control-label col-form-label"
-                        >Sesi Kelas</label
-                      >
-                      <div class="col-md-9">
-                        <select name="idsesikelas" id="idsesikelas" class="form-select">
-                          <option disabled selected>-- Pilih Sesi Kelas --</option>
-                      </div>
-                    </div>     
-                  </div>  
-                  <div class="border-top">
-                    <div class="card-body">
-                          <input id="cmd" type="button" class="btn btn-primary float-end mt-3 mb-3" value="Simpan" onclick="simpan()">
-                    </div>    
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>  -->
-          <div id="tableku"></div>
           <!-- ============================================================== -->
           <!-- End PAge Content -->
           <!-- ============================================================== -->
@@ -295,7 +285,7 @@
     </script>
   </body>
   <script type="text/javascript">
-    var iddaftarkelasskrg = "";
+    var idDaftarKelasBaptisSkrg= "";
 
     function ajaxku(url, data){
       var xhttp = new XMLHttpRequest();
@@ -305,12 +295,10 @@
 
           var bagi = dataku.split("###");
 
-          if(bagi[1] == "simpan"){
-            alert("Data telah tersimpan");
-          }else if (bagi[1] == "ubah") {
-            alert("Data telah berubah");
-          }else if (bagi[1] == "hapus") {
-            alert("Data telah terhapus");
+          if(bagi[1] == "terima"){
+            alert("Verifikasi berhasil!");
+          }else if (bagi[1] == "tolak") {
+            alert("Verifikasi ditolak, Data dihapus");
           }
 
           document.getElementById("tableku").innerHTML = bagi[2]
@@ -325,84 +313,39 @@
       ajaxku("proses-daftarkelasbaptis.php");
     }
 
-    function resetForm(){
-      document.getElementById("idkelas").value = "";
-      document.getElementById("username").value = "";
-      document.getElementById("namapasangan").value = "";
-      document.getElementById("idsesikelas").value = "";
-      document.getElementById("cmd").value = "Simpan";
-    }
-
-    function simpan(){
-      let idkelas = document.getElementById("idkelas").value;
-      let username = document.getElementById("username").value;
-      let namapasangan = document.getElementById("namapasangan").value;
-      let idsesikelas = document.getElementById("idsesikelas").value;
-      let cmd = document.getElementById("cmd").value;
-
+    function terima(){
+      let statusVerifikasi = document.getElementById("statusVerifikasi").value;
+      let accept = document.getElementById("accept").value;
 
       let data = new FormData();
-      data.append("idkelas", idkelas);
-      data.append("username", username);
-      data.append("namapasangan", namapasangan);
-      data.append("idsesikelas", idsesikelas);
-      data.append("cmd", cmd);
+      data.append("statusVerifikasi", statusVerifikasi);
+      data.append("accept", accept);
 
-      if(cmd == "Ubah"){
-        if(confirm("Apakah anda ingin mengubah data ini?")){
-          data.append("iddaftarkelas", iddaftarkelasskrg);
+      if( accept == "Terima") {
+        if(confirm("Apakah anda yakin verifikasi data ini?")) {
+          data.append("idDaftarKelasBaptis", idDaftarKelasBaptisSkrg);
           ajaxku("proses-daftarkelasbaptis.php", data);
+          window.location.reload();
         }
       }
-      else{
-        ajaxku("proses-daftarkelasbaptis.php", data);
-      }
-      resetForm();
     }
+    function tolak(idDaftarKelasBaptis){
+      let decline = document.getElementById("decline").value;
 
-    function ubah(iddaftarkelas, idkelas, username, namapasangan, idsesikelas){
-      iddaftarkelasskrg = iddaftarkelas;
-      document.getElementById("idkelas").value = idkelas;
-      document.getElementById("username").value = username;
-      document.getElementById("namapasangan").value = namapasangan;
-      document.getElementById("idsesikelas").value = idsesikelas;
-      document.getElementById("cmd").value = "Ubah";
-    }
+      // let data = new FormData();
+      // data.append("decline", decline);
 
-    function hapus(iddaftarkelas){
-      if (confirm("Apakah anda yakin ingin menghapus data ini ?")) {
-        let data = new FormData();
-        data.append("cmd", "Hapus");
-        data.append("iddaftarkelas", iddaftarkelas);
+      if( decline == "Tolak") {
+        if(confirm("Apakah anda yakin menolak verifikasi data ini?")) {
+          let data = new FormData();
+          data.append("decline", "Tolak");
+          data.append("idDaftarKelasBaptis", idDaftarKelasBaptis);
 
-        ajaxku("proses-daftarkelasbaptis.php", data);
+          ajaxku("proses-daftarkelasbaptis.php", data);
+          window.location.reload();
+        }
       }
     }
-    // //pemfilteran pemilihan kelas dan muncul sesinya sesuai kelas yang dipilih
-    // function pilihKelas(idkelas){
-    //   const selectElement = document.getElementById('idsesikelas');
-    //   let selectHtml = '<option disabled selected>-- Pilih Sesi Kelas --</option>';
-
-    //   fetch(`apiSesiKelas.php?idkelas=${idkelas}`)
-    //     .then(res => res.json())
-    //     .then(res => {
-    //       res.forEach(val => {
-    //         selectHtml += `<option value="${val.idsesikelas}">${val.namasesi} (${val.harisesi}: ${val.waktumulai}-${val.waktuakhir})</option>`;
-    //       });
-
-    //       selectElement.innerHTML = selectHtml;
-    //     });
-    // }
-
-    // //buat function tampil field nama pasangan saat kelas bimbingan pranikah terpilih
-    // function tampil() {
-    //   let pranikah = document.getElementById("idkelas").value;
-    //   if (pranikah === "2") {
-    //     pasangan.style.display = 'flex';
-    //   }
-    //   else {
-    //     pasangan.style.display = "none";
-    //   }
-    // }
+    
   </script>
 </html>

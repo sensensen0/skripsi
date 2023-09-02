@@ -148,7 +148,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="uploadFoto" class="form-label">Upload Pas Foto</label>
-                        <input type="file" accept=".jpg, .jpeg" id="uploadFoto" class="form-control form-input">
+                        <input type="file" accept=".jpg, .jpeg, .png" id="uploadFoto" class="form-control form-input">
                     </div>
                     <div class="text-center">
                         <input id = "cmd" type="button" class="btn btn-primary" value="Daftar" onclick="daftar()">
@@ -160,6 +160,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       var idDaftarBaptisSkrg = "";
 
@@ -176,7 +177,7 @@
               setTimeout(() => {
                 location.reload();
               }, 2000);
-              window.location.href="halamanUser.php"
+              // window.location.href="halamanUser.php"
           }else if (bagi[1] == "ubah") {
               alert("Data telah berubah");
           }else if (bagi[1] == "hapus") {
@@ -204,7 +205,7 @@
       let alamatLengkap = document.getElementById("alamatLengkap").value;
       let opsiBaptis = document.querySelector('input[name="opsiBaptis"]:checked').value;
       let ukuranJubah = document.querySelector('input[name="ukuranJubah"]:checked').value;
-      let uploadFoto = document.getElementById("uploadFoto").value;
+      let uploadFoto = document.getElementById("uploadFoto").files[0];
       let cmd = document.getElementById("cmd").value;
 
 
@@ -222,8 +223,41 @@
       data.append("uploadFoto",uploadFoto);
       data.append("cmd", cmd);
 
-      ajaxku("proses-daftarbaptis.php", data);
-      }
+      // ajaxku("proses-daftarbaptis.php", data);
+      $.ajax({
+        url: 'proses-daftarbaptis.php',
+        type: 'POST',
+        data: data,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          var dataku = response;
+
+          var bagi = dataku.split("###");
+
+          if(bagi[1] == "daftar"){
+              alert("Anda telah terdaftar!");
+              setTimeout(() => {
+                location.reload();
+              }, 2000);
+              window.location.href="halamanUser.php"
+          }else if (bagi[1] == "ubah") {
+              alert("Data telah berubah");
+          }else if (bagi[1] == "hapus") {
+              alert("Data telah terhapus");
+          }else if(bagi[1] == "usernameada") {
+              alert("AKUN SUDAH TERDAFTAR");
+              location.href="halamanUser.php"
+            }
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          // Handle error
+        }
+      });
+    }
+
+     
 
       document.getElementById('uploadFoto').addEventListener('change', function(event) {
         var file = event.target.files[0];

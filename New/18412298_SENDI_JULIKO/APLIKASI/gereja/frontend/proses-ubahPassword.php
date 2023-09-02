@@ -10,7 +10,12 @@
     $cmd = $_POST['cmd'];
 
     if($cmd == "Ubah") {
-        
+        $query1 = "SELECT * FROM tbuser where username = '$username' AND password= '$passwordLama'";
+        $result1 = mysqli_query($con, $query1);
+
+        if (mysqli_num_rows($result1) != 1) {
+            echo '###pwtidaksesuai';
+        }
         $sql = "UPDATE tbuser SET password ='$passwordBaru' where username = '$username'";
 
         mysqli_query($con, $sql);

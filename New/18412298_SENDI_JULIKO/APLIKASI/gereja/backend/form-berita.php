@@ -143,9 +143,9 @@
                       <div class="col-sm-9">
                         <input
                           type="text"
-                          class="form-control text-uppercase"
+                          class="form-control"
                           id="judulBerita"
-                          placeholder="xx-100-xx"
+                          placeholder="Isi judul berita"
                           required
                         />
                       </div>
@@ -157,7 +157,7 @@
                         >Isi Berita</label
                       >
                       <div class="col-sm-9">
-                        <textarea class="form-control" placeholder="xx-500-xx" id="isiBerita" rows="10" required></textarea>
+                        <textarea class="form-control" placeholder="Isi informasi berita" id="isiBerita" rows="10" required></textarea>
                       </div>
                     </div>
                     <form action="/upload" enctype="multipart/form-data">
@@ -269,6 +269,7 @@
     <script src="../assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
     <script src="../assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="../assets/libs/quill/dist/quill.min.js"></script>
+
     <script>
       //***********************************//
       // For select 2
@@ -311,6 +312,7 @@
       });
     </script>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript">
     var idBeritaskrg = "";
 
@@ -353,7 +355,7 @@
     function simpan(){
       let judulBerita = document.getElementById("judulBerita").value;
       let isiBerita = document.getElementById("isiBerita").value;
-      let gambarCover = document.getElementById("gambarCover").value;
+      let gambarCover = document.getElementById("gambarCover").files[0];
       let fileBerita= document.getElementById("fileBerita").value;
       let cmd = document.getElementById("cmd").value;
 
@@ -364,7 +366,7 @@
       data.append("gambarCover", gambarCover);
       data.append("fileBerita", fileBerita);
       data.append("cmd", cmd);
-
+      
       if(cmd == "Ubah"){
         if(confirm("Apakah anda ingin mengubah data ini?")){
           data.append("idBerita", idBeritaskrg);
@@ -372,7 +374,35 @@
         }
       }
       else{
-        ajaxku("proses-berita.php", data);
+        //ajaxku("proses-berita.php",data)
+        $.ajax({
+        url: 'proses-berita.php',
+        type: 'POST',
+        data: data,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          var dataku = response;
+
+          var bagi = dataku.split("###");
+
+          if(bagi[1] == "simpan"){
+              alert("Data telah disimpan");
+              location.reload();
+          }else if (bagi[1] == "ubah") {
+              alert("Data telah berubah");
+          }else if (bagi[1] == "hapus") {
+              alert("Data telah terhapus");
+          }else if(bagi[1] == "usernameada") {
+              alert("AKUN SUDAH TERDAFTAR");
+              location.href="halamanUser.php"
+            }
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          // Handle error
+        }
+      });
       }
       resetForm();
     }
@@ -381,8 +411,8 @@
       idBeritaskrg = idBerita;
       document.getElementById("judulBerita").value = judulBerita;
       document.getElementById("isiBerita").value = isiBerita;
-      document.getElementById("gambarCover").value = gambarCover;
-      document.getElementById("filberitar").value = fileBerita;
+      document.getElementById("gambarCover").files[0] = gambarCover;
+      document.getElementById("fileberita").value = fileBerita;
       document.getElementById("cmd").value = "Ubah";
     }
 
@@ -397,7 +427,7 @@
     }
 
     function publish(){
-
+      
     }
     function validateFile() {
       function validateImageFile() {

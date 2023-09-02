@@ -76,7 +76,7 @@
                             </div>
                         </div>
                     <div class="border border-dark px-4 py-3 mb-3 border-opacity-25 rounded-3">
-                        <h3 class="mb-3">Pihak Wanita</h3>
+                        <h3 class="mb-3">Pihak Pria/Wanita</h3>
                         <div class="mb-3">
                             <label for="namaPasangan" class="form-label">Nama Pasangan</label>
                             <input type="text" id="namaPasangan" class="form-control form-input" placeholder="Masukkan nama pasangan" required>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="lampirSuratBaptis" class="form-label">Lampiran Surat Baptis</label>
-                        <input type="file" accept=".jpg, .jpeg, .pdf" id="lampirSuratBaptis" class="form-control form-input">
+                        <input type="file" accept=".jpg, .jpeg, .pdf, .png" id="lampirSuratBaptis" class="form-control form-input">
                     </div>
                     <div class="mb-3">
                         <label for="idSesiKelas" class="form-label">Sesi Kelas</label>
@@ -126,6 +126,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         var idDaftarPranikahSkrg = "";
 
@@ -137,19 +138,17 @@
 
             var bagi = dataku.split("###");
 
-            if(bagi[1] == "daftar"){
-                alert("Anda telah terdaftar!");
-                setTimeout(() => {
-                location.reload();
-                }, 2000);
-                window.location.href="halamanUser.php"
-            }else if (bagi[1] == "ubah") {
-                alert("Data telah berubah");
-            }else if (bagi[1] == "hapus") {
-                alert("Data telah terhapus");
-            }
-
-            // document.getElementById("tableku").innerHTML = bagi[2]
+                if(bagi[1] == "daftar"){
+                    alert("Anda telah terdaftar!");
+                    setTimeout(() => {
+                    location.reload();
+                    }, 2000);
+                    window.location.href="halamanUser.php"
+                }else if (bagi[1] == "ubah") {
+                    alert("Data telah berubah");
+                }else if (bagi[1] == "hapus") {
+                    alert("Data telah terhapus");
+                }
             }
         };
             xhttp.open("POST", url, true);
@@ -157,7 +156,6 @@
         }
 
         function loading(){
-        // document.getElementById("pasangan").style.display = "none";
         ajaxku("proses-pranikah.php");
         }
 
@@ -169,7 +167,7 @@
             let namaPasangan = document.getElementById("namaPasangan").value;
             let tanggalLahirPasangan = document.getElementById("tanggalLahirPasangan").value;
             let noHpPasangan = document.getElementById("noHpPasangan").value;
-            let lampirSuratBaptis = document.getElementById("lampirSuratBaptis").value;
+            let lampirSuratBaptis = document.getElementById("lampirSuratBaptis").files[0];
             let idSesiKelas = document.getElementById("idSesiKelas").value;
             let cmd = document.getElementById("cmd").value;
 
@@ -187,7 +185,38 @@
             data.append("idSesiKelas", idSesiKelas);
             data.append("cmd", cmd);
 
-            ajaxku("proses-pranikah.php", data);
+            // ajaxku("proses-pranikah.php", data);
+            $.ajax({
+                url: 'proses-pranikah.php',
+                type: 'POST',
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                var dataku = response;
+
+                var bagi = dataku.split("###");
+
+                if(bagi[1] == "daftar"){
+                    alert("Anda telah terdaftar!");
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000);
+                    window.location.href="halamanUser.php"
+                }else if (bagi[1] == "ubah") {
+                    alert("Data telah berubah");
+                }else if (bagi[1] == "hapus") {
+                    alert("Data telah terhapus");
+                }else if(bagi[1] == "usernameada") {
+                    alert("AKUN SUDAH TERDAFTAR");
+                    location.href="halamanUser.php"
+                }
+                },
+                error: function(xhr, status, error) {
+                console.log(xhr.responseText);
+                // Handle error
+                }
+            });
         }       
         
         document.getElementById('lampirSuratBaptis').addEventListener('change', function(event) {

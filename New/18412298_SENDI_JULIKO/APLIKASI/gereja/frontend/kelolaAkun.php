@@ -168,33 +168,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script>
-      // function validateForm() {
-      //   var password = document.getElementById("password").value;
-      //   var confirmPassword = document.getElementById("confirmPassword").value;
-      //   var passwordError = document.getElementById("passwordError");
-      //   var passwordLengthError = document.getElementById("passwordLengthError");
-      //   var cmd = document.getElementById("cmd");
-      //   // Reset pesan error sebelumnya
-      //   passwordError.textContent = "";
-      //   passwordLengthError.textContent = "";
-
-      //   // Cek apakah password dan confirm password sama
-      //   if (password !== confirmPassword) {
-      //     passwordError.textContent = "Password dan Confirm Password tidak sama!";
-      //     cmd.disabled = true;
-      //     return false;
-      //   }
-
-      //   // Cek panjang password minimal 6 karakter
-      //   if (password.length < 6) {
-      //     passwordLengthError.textContent = "Password harus memiliki minimal 6 karakter!";
-      //     cmd.disabled = true;
-      //     return false;
-      //   }
-      //   cmd.disabled=false;
-      //   return true;
-      // }
-
         function validasiKodePos() {
             var input = document.getElementById("kodePos").value;
             var number = parseInt(input);
@@ -222,13 +195,14 @@
         
         //function konfirmasi batal
         function konfirmasiBatal(){
-            if(confirm("Apakah anda yakin ingin membatalkan pendaftaran?")) {
+            if(confirm("Apakah anda yakin ingin membatalkan ubah data?")) {
                 location.href="halamanUser.php"
             } else {
                 document.getElementById("username").focus();
                 document.getElementById("username").scrollIntoView();
             }
         }
+
         var usernameSkrg = "";
 
         function ajaxku(url, data){

@@ -223,12 +223,15 @@
 
             if(bagi[1] == "daftar"){
                 alert("Anda telah terdaftar!");
-                window.location.href="form-login.php";
+                // window.location.href="form-login.php";
             }else if (bagi[1] == "usernameada") {
                 alert("Username Telah Ada! Mohon menggunakan username lain.");
                 resetForm();
             }else if (bagi[1] == "penggunaada") {
                 alert("Pengguna Telah Ada! Mohon mendaftar pengguna lain.");
+                resetForm();
+            }else if (bagi[1] == "emailada") {
+                alert("Email Telah Ada! Mohon menggunakan email lain!")
                 resetForm();
             }
 
